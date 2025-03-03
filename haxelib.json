@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"tags": [],
 	"description": "A foundational Haxe framework for cross-platform development",
-	"version": "8.2.2",
+	"version": "8.3.0",
 	"releasenote": "Fixed JS debug builds, install/launch on iOS, and other various bug fixes",
 	"contributors": [
 		"singmajesty",
