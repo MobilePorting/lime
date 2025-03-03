@@ -52,6 +52,16 @@ public class GameActivity extends SDLActivity {
 
 	public Handler handler;
 
+	public static void setDeviceOrientationListener (HaxeObject object) {
+
+		deviceOrientationListener = object;
+		if (deviceOrientationListener != null)
+		{
+			deviceOrientationListener.call1("onOrientationChanged", deviceOrientation);
+		}
+
+	}
+
 	public static double getDisplayXDPI () {
 
 		if (metrics == null) {
