@@ -15,10 +15,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.view.DisplayCutout;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
+import android.view.OrientationEventListener;
 import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowManager;
@@ -42,7 +44,11 @@ public class GameActivity extends SDLActivity {
 	// TODO: Handle the rest of the callbacks for filedialogs?
 	private static List<FileDialog> filedialogs;
 	private static DisplayMetrics metrics;
+	private static DisplayCutout displayCutout;
 	private static Vibrator vibrator;
+	private static OrientationEventListener orientationListener;
+	private static HaxeObject deviceOrientationListener;
+	private static int deviceOrientation = SDL_ORIENTATION_UNKNOWN;
 
 	public Handler handler;
 
