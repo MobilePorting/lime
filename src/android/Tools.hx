@@ -236,6 +236,10 @@ private typedef ButtonData =
  * Listener class for handling button click events in an alert dialog.
  */
 @:noCompletion
+#if !lime_debug
+@:fileXml('tags="haxe,release"')
+@:noDebug
+#end
 private class ButtonListener #if android implements JNISafety #end
 {
 	private var onClickEvent:Event<Void->Void> = new Event<Void->Void>();
