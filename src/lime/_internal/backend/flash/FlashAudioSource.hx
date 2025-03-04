@@ -9,7 +9,7 @@ class FlashAudioSource
 {
 	private var channel:SoundChannel;
 	private var completed:Bool;
-	private var length:Null<Float>;
+	private var length:Null<Int>;
 	private var loops:Int;
 	private var parent:AudioSource;
 	private var pauseTime:Float;
@@ -92,17 +92,17 @@ class FlashAudioSource
 		return value;
 	}
 
-	public function getLength():Float
+	public function getLength():Int
 	{
 		if (length != null)
 		{
 			return length;
 		}
 
-		return parent.buffer.__srcSound.length - parent.offset;
+		return Std.int(parent.buffer.__srcSound.length) - parent.offset;
 	}
 
-	public function setLength(value:Float):Float
+	public function setLength(value:Int):Int
 	{
 		return length = value;
 	}

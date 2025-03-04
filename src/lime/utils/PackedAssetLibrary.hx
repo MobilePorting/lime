@@ -260,8 +260,8 @@ import flash.media.Sound;
 				path = __cacheBreak(path);
 
 				var packedData_onProgress = load_onProgress.bind(this.id);
-+
-+				Bytes.loadFromFile(path).onProgress(packedData_onProgress).onError(promise.error).onComplete(packedData_onComplete);
+
+				Bytes.loadFromFile(path).onProgress(packedData_onProgress).onError(promise.error).onComplete(packedData_onComplete);
 			}
 		}
 
