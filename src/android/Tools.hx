@@ -87,11 +87,15 @@ class Tools
 	 */
 	public static function isRooted():Bool
 	{
+		#if sys
 		final process:Process = new Process('su');
 
 		final exitCode:Null<Int> = process.exitCode(true);
 
 		return exitCode != null && exitCode != 255;
+		#else
+		return false;
+		#end
 	}
 
 	/**
