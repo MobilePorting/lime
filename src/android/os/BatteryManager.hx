@@ -1,11 +1,16 @@
 package android.os;
 
-import android.jni.JNICache;
+import lime._internal.backend.android.JNICache;
 import lime.system.JNI;
 
 /**
  * Utility class for accessing battery information using JNI.
  */
+#if android
+#if !lime_debug
+@:fileXml('tags="haxe,release"')
+@:noDebug
+#end
 class BatteryManager
 {
 	/**
@@ -49,9 +54,9 @@ class BatteryManager
 	 *
 	 * @return `true` if the device is charging, otherwise `false`.
 	 */
-	public function isCharging():Null<Bool>
+	public function isCharging():Bool
 	{
-		return #if android JNI.callMember(JNICache.createMemberMethod('android/os/BatteryManager', 'isCharging', '()Z'), constructor, []); #else null; #end
+		return JNI.callMember(JNICache.createMemberMethod('android/os/BatteryManager', 'isCharging', '()Z'), constructor, []);
 	}
 
 	/**
@@ -60,8 +65,9 @@ class BatteryManager
 	 * @param id The ID of the battery property to retrieve.
 	 * @return The value of the specified battery property.
 	 */
-	public function getProperty(id:Int):Null<Int>
+	public function getProperty(id:Int):Int
 	{
-		return #if android JNI.callMember(JNICache.createMemberMethod('android/os/BatteryManager', 'getIntProperty', '(I)I'), constructor, [id]); #else null; #end
+		return JNI.callMember(JNICache.createMemberMethod('android/os/BatteryManager', 'getIntProperty', '(I)I'), constructor, [id]);
 	}
 }
+#end

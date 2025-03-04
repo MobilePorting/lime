@@ -7,6 +7,7 @@ using StringTools;
 /**
  * Utility class for handling Android permissions via JNI.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -39,3 +40,4 @@ class Permissions
 			'([Ljava/lang/String;I)V')(permissions, requestCode);
 	}
 }
+#end

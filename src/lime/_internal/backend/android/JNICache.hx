@@ -5,6 +5,7 @@ import lime.system.JNI;
 /**
  * A utility class for caching JNI method and field references.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -34,7 +35,6 @@ class JNICache
 	 */
 	public static function createStaticMethod(className:String, methodName:String, signature:String, cache:Bool = true):Dynamic
 	{
-		#if android
 		final key:String = '$className::$methodName::$signature';
 
 		if (cache && !staticMethodCache.exists(key))
@@ -43,7 +43,6 @@ class JNICache
 			return JNI.createStaticMethod(className, methodName, signature);
 
 		return staticMethodCache.get(key);
-		#end
 	}
 
 	/**
@@ -57,7 +56,6 @@ class JNICache
 	 */
 	public static function createMemberMethod(className:String, methodName:String, signature:String, cache:Bool = true):Dynamic
 	{
-		#if android
 		final key:String = '$className::$methodName::$signature';
 
 		if (cache && !memberMethodCache.exists(key))
@@ -66,7 +64,6 @@ class JNICache
 			return JNI.createMemberMethod(className, methodName, signature);
 
 		return memberMethodCache.get(key);
-		#end
 	}
 
 	/**
@@ -80,7 +77,6 @@ class JNICache
 	 */
 	public static function createStaticField(className:String, fieldName:String, signature:String, cache:Bool = true):JNIStaticField
 	{
-		#if android
 		final key:String = '$className::$fieldName::$signature';
 
 		if (cache && !staticFieldCache.exists(key))
@@ -89,7 +85,6 @@ class JNICache
 			return JNI.createStaticField(className, fieldName, signature);
 
 		return staticFieldCache.get(key);
-		#end
 	}
 
 	/**
@@ -103,7 +98,6 @@ class JNICache
 	 */
 	public static function createMemberField(className:String, fieldName:String, signature:String, cache:Bool = true):JNIMemberField
 	{
-		#if android
 		final key:String = '$className::$fieldName::$signature';
 
 		if (cache && !memberFieldCache.exists(key))
@@ -112,6 +106,6 @@ class JNICache
 			return JNI.createMemberField(className, fieldName, signature);
 
 		return memberFieldCache.get(key);
-		#end
 	}
 }
+#end

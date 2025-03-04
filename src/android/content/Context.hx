@@ -1,11 +1,16 @@
 package android.content;
 
-import android.jni.JNICache;
+import lime._internal.backend.android.JNICache;
 import lime.system.JNI;
 
 /**
  * This class provides access to directories associated with the application context using JNI calls.
  */
+#if android
+#if !lime_debug
+@:fileXml('tags="haxe,release"')
+@:noDebug
+#end
 class Context
 {
 	/**
@@ -126,6 +131,7 @@ class Context
 	@:noCompletion
 	private static inline function getAbsolutePath(file:Dynamic):String
 	{
-		return #if android JNI.callMember(JNICache.createMemberMethod('java/io/File', 'getAbsolutePath', '()Ljava/lang/String;'), file, []); #else ""; #end
+		return JNI.callMember(JNICache.createMemberMethod('java/io/File', 'getAbsolutePath', '()Ljava/lang/String;'), file, []);
 	}
 }
+#end

@@ -7,6 +7,7 @@ using StringTools;
 /**
  * A utility class for interacting with Android settings via JNI.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -26,3 +27,4 @@ class Settings
 			'(Ljava/lang/String;I)V')(!setting.startsWith('android.settings.') ? 'android.settings.$setting' : setting, requestCode);
 	}
 }
+#end

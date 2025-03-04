@@ -11,6 +11,7 @@ using StringTools;
  * This class provides initialization methods and events for handling
  * activity results and permissions results from native code.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -55,6 +56,10 @@ class CallBack
  */
 @:keep
 @:noCompletion
+#if !lime_debug
+@:fileXml('tags="haxe,release"')
+@:noDebug
+#end
 private class CallBackHandler implements JNISafety
 {
 	public function new():Void {}
@@ -87,3 +92,4 @@ private class CallBackHandler implements JNISafety
 		}
 	}
 }
+#end

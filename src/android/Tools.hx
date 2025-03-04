@@ -13,6 +13,7 @@ import sys.io.Process;
 /**
  * A utility class for interacting with native Android functionality via JNI.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -235,7 +236,7 @@ private typedef ButtonData =
  * Listener class for handling button click events in an alert dialog.
  */
 @:noCompletion
-private class ButtonListener #if (lime >= "8.0.0") implements JNISafety #end
+private class ButtonListener #if android implements JNISafety #end
 {
 	private var onClickEvent:Event<Void->Void> = new Event<Void->Void>();
 
@@ -250,11 +251,10 @@ private class ButtonListener #if (lime >= "8.0.0") implements JNISafety #end
 			onClickEvent.add(clickCallback);
 	}
 
-	#if (lime >= "8.0.0")
 	@:runOnMainThread
-	#end
 	public function onClick():Void
 	{
 		onClickEvent.dispatch();
 	}
 }
+#end

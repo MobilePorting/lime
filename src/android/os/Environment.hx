@@ -7,6 +7,7 @@ import lime.system.JNI;
  * This class provides access to environment variables and directories on the device
  * using JNI calls.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -169,6 +170,7 @@ class Environment
 	@:noCompletion
 	private static inline function getAbsolutePath(file:Dynamic):String
 	{
-		return #if android JNI.callMember(JNICache.createMemberMethod('java/io/File', 'getAbsolutePath', '()Ljava/lang/String;'), file, []); #else ""; #end
+		return JNI.callMember(JNICache.createMemberMethod('java/io/File', 'getAbsolutePath', '()Ljava/lang/String;'), file, []);
 	}
 }
+#end

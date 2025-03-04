@@ -5,6 +5,7 @@ import lime._internal.backend.android.JNICache;
 /**
  * Utility class providing access to various build-related information via JNI.
  */
+#if android
 #if !lime_debug
 @:fileXml('tags="haxe,release"')
 @:noDebug
@@ -260,3 +261,4 @@ class VERSION_CODES
 	public static final UPSIDE_DOWN_CAKE:Int = 34;
 	public static final VANILLA_ICE_CREAM:Int = 35;
 }
+#end
