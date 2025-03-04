@@ -9,9 +9,7 @@ import lime.system.CFFI;
 import lime.system.ThreadPool;
 import lime.utils.ArrayBuffer;
 import lime.utils.Resource;
-#if android
 import lime.system.JNI;
-#end
 #if hl
 import hl.Bytes as HLBytes;
 import hl.NativeArray;
