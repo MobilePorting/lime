@@ -6,6 +6,7 @@ import haxe.io.Path;
 import lime.app.Event;
 import lime.math.Rectangle;
 import lime.utils.Log;
+import lime.system.JNI;
 #if sys
 import sys.io.Process;
 #end
