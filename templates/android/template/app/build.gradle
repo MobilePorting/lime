@@ -93,7 +93,7 @@ android {
 
 dependencies {
 	::if (ANDROID_USE_ANDROIDX)::
-	implementation "androidx.core:core:1.6.0"
+	implementation "androidx.core:core:1.15.0"
 	implementation "androidx.documentfile:documentfile:1.0.1"
 	implementation "com.google.android.material:material:1.12.0"
 	::end::
