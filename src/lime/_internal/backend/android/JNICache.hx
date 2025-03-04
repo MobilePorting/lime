@@ -34,7 +34,7 @@ class JNICache
 	 */
 	public static function createStaticMethod(className:String, methodName:String, signature:String, cache:Bool = true):Dynamic
 	{
-        #if android
+		#if android
 		final key:String = '$className::$methodName::$signature';
 
 		if (cache && !staticMethodCache.exists(key))
@@ -43,7 +43,7 @@ class JNICache
 			return JNI.createStaticMethod(className, methodName, signature);
 
 		return staticMethodCache.get(key);
-        #end
+		#end
 	}
 
 	/**
@@ -57,7 +57,7 @@ class JNICache
 	 */
 	public static function createMemberMethod(className:String, methodName:String, signature:String, cache:Bool = true):Dynamic
 	{
-        #if android
+		#if android
 		final key:String = '$className::$methodName::$signature';
 
 		if (cache && !memberMethodCache.exists(key))
@@ -66,7 +66,7 @@ class JNICache
 			return JNI.createMemberMethod(className, methodName, signature);
 
 		return memberMethodCache.get(key);
-        #end
+		#end
 	}
 
 	/**
@@ -80,7 +80,7 @@ class JNICache
 	 */
 	public static function createStaticField(className:String, fieldName:String, signature:String, cache:Bool = true):JNIStaticField
 	{
-        #if android
+		#if android
 		final key:String = '$className::$fieldName::$signature';
 
 		if (cache && !staticFieldCache.exists(key))
@@ -89,7 +89,7 @@ class JNICache
 			return JNI.createStaticField(className, fieldName, signature);
 
 		return staticFieldCache.get(key);
-        #end
+		#end
 	}
 
 	/**
@@ -103,7 +103,7 @@ class JNICache
 	 */
 	public static function createMemberField(className:String, fieldName:String, signature:String, cache:Bool = true):JNIMemberField
 	{
-        #if android
+		#if android
 		final key:String = '$className::$fieldName::$signature';
 
 		if (cache && !memberFieldCache.exists(key))
@@ -112,6 +112,6 @@ class JNICache
 			return JNI.createMemberField(className, fieldName, signature);
 
 		return memberFieldCache.get(key);
-        #end
+		#end
 	}
 }
