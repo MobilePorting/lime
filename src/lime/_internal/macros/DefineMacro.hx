@@ -81,7 +81,7 @@ class DefineMacro
 		}
 
 		if (Context.defined("android") && Context.defined("extension-androidtools"))
-			Context.fatalError('You cannot add extension-androidtools to this Lime because it is already included. Please remove it from Project.xml.', (macro null).pos);
+			Context.fatalError('You cannot add extension-androidtools to this Lime because it is already included. Please remove it from project file.', (macro null).pos);
 	}
 }
 #end
