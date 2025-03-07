@@ -67,7 +67,7 @@ class FlashAudioSource
 
 	// shrug
 	public function getLatency():Float
-        return 0;
+		return 0;
 
 	public function setCurrentTime(value:Float):Float
 	{
