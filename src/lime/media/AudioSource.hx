@@ -65,6 +65,12 @@ class AudioSource
 	**/
 	public var position(get, set):Vector4;
 
+	/**
+		The estimated output latency, in miliseconds, for this `AudioSource`. If not possible to retrieve will return `0`.
+		NOTE: This will return `0` if the source is not playing!
+	**/
+	public var latency(get, never):Float;
+
 	@:noCompletion private var __backend:AudioSourceBackend;
 
 	/**
@@ -190,6 +196,11 @@ class AudioSource
 	@:noCompletion private function set_position(value:Vector4):Vector4
 	{
 		return __backend.setPosition(value);
+	}
+
+	@:noCompletion private function get_latency():Float
+	{
+		return __backend.getLatency();
 	}
 }
 
