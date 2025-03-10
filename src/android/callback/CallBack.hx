@@ -1,6 +1,7 @@
 package android.callback;
 
 import lime._internal.backend.android.JNICache;
+import lime.system.JNI;
 import haxe.Json;
 import lime.app.Event;
 
